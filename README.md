@@ -20,3 +20,15 @@ The project is structured as follows:
 
 - `app/`: Contains the main source code for the compose article app.
 - `res/`: Includes resources such as images and layouts.
+
+
+## All screenshots
+
+<p align="center">
+  <img src="emulator_article_screenshot.png" height="500" alt="Compose article App">
+  <img src="emulator_task_screenshot.png" height="500" alt="Compose article App">
+</p>
+
+<p align="center">
+
+</p>

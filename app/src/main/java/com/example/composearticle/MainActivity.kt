@@ -12,10 +12,12 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -32,7 +34,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    ComposeArticlePreview()
+                    TaskManagerPreview()
                 }
             }
         }
@@ -68,6 +70,32 @@ fun ComposeArticle(title: String, messages: Array<String>, wallpaper: Painter, m
     }
 }
 
+@Composable
+fun TaskManager(mainMessage: String, secondaryMessage: String, image: Painter, modifier: Modifier = Modifier) {
+    Column(
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = modifier
+    ){
+        Image(
+            painter = image,
+            contentDescription = "image",
+            contentScale = ContentScale.FillWidth,
+        )
+        Text(
+            text = mainMessage,
+            fontSize = 24.sp,
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier
+                .padding(top = 24.dp, bottom = 8.dp)
+        )
+        Text(
+            text = secondaryMessage,
+            fontSize = 16.sp
+        )
+    }
+}
+
 @Preview(showBackground = true)
 @Composable
 fun ComposeArticlePreview() {
@@ -79,5 +107,17 @@ fun ComposeArticlePreview() {
     val wallpaper = painterResource(R.drawable.bg_compose_background)
     ComposeArticleTheme {
         ComposeArticle(title = title, messages = messages, wallpaper = wallpaper)
+    }
+}
+
+
+@Preview(showBackground = true)
+@Composable
+fun TaskManagerPreview() {
+    val mainMessage = "All tasks completed"
+    val secondaryMessage = "Nice work!"
+    val image = painterResource(R.drawable.ic_task_completed)
+    ComposeArticleTheme {
+        TaskManager(mainMessage = mainMessage, secondaryMessage = secondaryMessage, image = image)
     }
 }
