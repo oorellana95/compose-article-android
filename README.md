@@ -25,10 +25,7 @@ The project is structured as follows:
 ## All screenshots
 
 <p align="center">
-  <img src="emulator_article_screenshot.png" height="500" alt="Compose article App">
-  <img src="emulator_task_screenshot.png" height="500" alt="Compose article App">
-</p>
-
-<p align="center">
-
+  <img src="emulator_article_screenshot.png" height="500" alt="Compose article Image">
+  <img src="emulator_task_screenshot.png" height="500" alt="Task manager Image">
+  <img src="emulator_quadrant_screenshot.png" height="500" alt="Quadrant Image">
 </p>
