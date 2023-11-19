@@ -1,7 +1,7 @@
-# Birthday Card App
+# Jetpack Compose tutorial
 
 <p align="center">
-  <img src="emulator_screenshot.png" width="400" alt="Compose article App">
+  <img src="emulator_article_screenshot.png" width="400" alt="Compose article App">
 </p>
 
 ## Overview
@@ -18,5 +18,5 @@ To follow along with the tutorial and understand the concepts covered in this pr
 
 The project is structured as follows:
 
-- `app/`: Contains the main source code for the birthday card app.
+- `app/`: Contains the main source code for the compose article app.
 - `res/`: Includes resources such as images and layouts.
