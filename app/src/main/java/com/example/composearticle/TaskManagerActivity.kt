@@ -12,18 +12,19 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.composearticle.ui.theme.ComposeArticleTheme
 
-class MainActivity : ComponentActivity() {
+class TaskManagerActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -32,7 +33,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    ComposeArticlePreview()
+                    TaskManagerPreview()
                 }
             }
         }
@@ -40,44 +41,39 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun ComposeArticle(title: String, messages: Array<String>, wallpaper: Painter, modifier: Modifier = Modifier) {
+fun TaskManager(mainMessage: String, secondaryMessage: String, image: Painter, modifier: Modifier = Modifier) {
     Column(
         verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier
     ){
         Image(
-            painter = wallpaper,
-            contentDescription = "wallpaper",
+            painter = image,
+            contentDescription = "image",
             contentScale = ContentScale.FillWidth,
         )
         Text(
-            text = title,
+            text = mainMessage,
             fontSize = 24.sp,
+            fontWeight = FontWeight.Bold,
             modifier = Modifier
-                .padding(16.dp)
+                .padding(top = 24.dp, bottom = 8.dp)
         )
-
-        messages.forEach { message ->
-            Text(
-                text = message,
-                textAlign = TextAlign.Justify,
-                modifier = Modifier
-                    .padding(16.dp)
-            )
-        }
+        Text(
+            text = secondaryMessage,
+            fontSize = 16.sp
+        )
     }
 }
 
+
 @Preview(showBackground = true)
 @Composable
-fun ComposeArticlePreview() {
-    val title = stringResource(R.string.title_main_activity)
-    val messages = arrayOf(
-        stringResource(R.string.message1_main_activity),
-        stringResource(R.string.message2_main_activity)
-    )
-    val wallpaper = painterResource(R.drawable.bg_compose_background)
+fun TaskManagerPreview() {
+    val mainMessage = stringResource(R.string.main_message_task_manager_activity)
+    val secondaryMessage = stringResource(R.string.secondary_message_task_manager_activity)
+    val image = painterResource(R.drawable.ic_task_completed)
     ComposeArticleTheme {
-        ComposeArticle(title = title, messages = messages, wallpaper = wallpaper)
+        TaskManager(mainMessage = mainMessage, secondaryMessage = secondaryMessage, image = image)
     }
 }
